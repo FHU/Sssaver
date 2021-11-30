@@ -1,56 +1,107 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Sssaver.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:Sssaver.Models"
+    xmlns:viewmodels="clr-namespace:Sssaver.ViewModels"
     Title="$ssaver"
     x:Class="Sssaver.Views.HomePage"
     BackgroundColor="{StaticResource White}"
     >
 
+
+
     <ContentPage.Content>
         <ScrollView >
             <Grid Padding="16" RowSpacing="8">
-
-                <Grid Grid.Row="0"
-                      BackgroundColor="{StaticResource LightGreen}">
+                <Grid Grid.Row="0" Padding="0, 0, 0, 20">
                     <StackLayout>
+                        <Label Text="Progress" FontSize="Large" FontAttributes="Bold"/>
+                        <StackLayout BackgroundColor="{StaticResource LightGreen}">
+                            <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" HorizontalOptions="Center" />
+                            <Label Text="{Binding ProgressAmount}" FontSize="Medium" HorizontalOptions="Center" />
+                            <FlexLayout>
+                                <AbsoluteLayout WidthRequest="40">
 
-                        <Label Text="Progress" FontSize="Medium" />
+                                </AbsoluteLayout>
+                                <ProgressBar Progress="{Binding SavingsPlan.PercentSavingsCompleted}" WidthRequest="300" ProgressColor="Blue"/>
+                            </FlexLayout>
+                            <FlexLayout JustifyContent="SpaceBetween" WidthRequest="100" Padding="5">
 
-                        <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" />
-
-                        <Label Text="{Binding SavingsPlan.Days}" FontSize="Large" />
-
-
-                        <Label Text="{Binding SavingsPlan.CurrentSavingsAmount}" FontSize="Medium" />
-
-                        <Label Text="{Binding SavingsPlan.PercentSavingsCompleted}" FontSize="Medium" />
-
+                                <Label Text="{Binding StartDate}" FontSize="Medium" HorizontalOptions="Start"/>
+                                <Label Text="{Binding EndDate}" FontSize="Medium" HorizontalOptions="End"/>
+                            </FlexLayout>
+                        </StackLayout>
 
                     </StackLayout>
 
                 </Grid>
 
-                <Grid Grid.Row="1"
-                      BackgroundColor="{StaticResource Secondary}">
+                <Grid Grid.Row="1" Grid.RowSpan="2">
+                    <StackLayout>
+                        <Label Text="Today's Savings Challenge"  FontSize="Large" FontAttributes="Bold"/>
+                        <StackLayout IsVisible="true" Padding="20">
+                            <Button Text="?"
+                                    FontSize="100"
+                                    WidthRequest="500"
+                                    BorderWidth="1"
+                                    BorderColor="Black"
+                                    BorderRadius="40"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Center"
+                                    BackgroundColor="AntiqueWhite"
+                                    TextColor="Black"/>
+                        </StackLayout>
+                        <StackLayout IsVisible="false">
+                            <StackLayout HorizontalOptions="Center"
+                                         BackgroundColor="LightBlue"
+                                         WidthRequest="250"
+                                         HeightRequest="120"
+                                         Margin="0, 20, 0, 20">
 
-                    <Label Text="Today's Challenge" FontSize="Medium" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="Center"
+                                         WidthRequest="350"
+                                         Padding="10"
+                                         IsVisible="false">
+                                <Button
+                                    Text="Save!"
+                                    FontSize="50"
+                                    HeightRequest="90"
+                                    WidthRequest="400"
+                                    BorderWidth="1"
+                                    BorderColor="Black"
+                                    BorderRadius="40"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Center"
+                                    BackgroundColor="GreenYellow"
+                                    TextColor="Black"
+                                    />
+                            </StackLayout>
+                            <Label Text="You are Awesome!"  FontSize="Large" HorizontalOptions="Center" IsVisible="false"/>
+                        </StackLayout>
+                    </StackLayout>
 
 
                 </Grid>
 
-                <Grid Grid.Row="2"
-                      BackgroundColor="{StaticResource Tertiary}">
+                <Grid Grid.Row="3" Grid.RowSpan="2">
+                    <StackLayout>
+                        <Label Text="Goal"  FontSize="Large" FontAttributes="Bold" />
+                        <StackLayout HeightRequest="400">
+                            <Label Text="{Binding SavingsPlan.Goal}" FontSize="Medium" Padding="15"/>
+                            <Image Source="{Binding SavingsPlan.GoalImage}" Scale="2" Margin="40"></Image>
+                        </StackLayout>
+                    </StackLayout>
 
-                    <Label Text="Goal" FontSize="Medium" />
 
 
                 </Grid>
 
-                <Grid Grid.Row="3"
+                <Grid Grid.Row="5" Grid.RowSpan="2"
                       BackgroundColor="{StaticResource White}">
 
-                    <Label Text="History" FontSize="Medium" />
+                    <Label Text="History"  FontSize="Large" FontAttributes="Bold" />
 
 
                 </Grid>
