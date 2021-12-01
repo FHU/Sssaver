@@ -19,6 +19,7 @@ namespace Sssaver.Models
 
         public SavingsChallenge(DateTime scheduledDate = new DateTime(), decimal amount = (decimal)0.0)
         {
+            Console.WriteLine(scheduledDate);
             ScheduledDate = scheduledDate;
             Amount = amount;
         }

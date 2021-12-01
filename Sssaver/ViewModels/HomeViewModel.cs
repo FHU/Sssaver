@@ -36,31 +36,50 @@ namespace Sssaver.ViewModels
                 Goal = "Transformers Combiner Wars Victorian Box Set Autobots Females MIB New Rare!",
                 GoalImage = "https://i.ebayimg.com/images/g/uW4AAOSwUkVhclPT/s-l300.jpg",
                 Days = 30,
-                TotalSavingsAmount = 339.95M,
-                CurrentSavingsAmount = 0,
+                TotalSavingsAmount = 0M,
+                CurrentSavingsAmount = 0M,
                 StartDate = new DateTime(), //2020, 12, 1
                 EndDate = new DateTime(2020, 12, 30),
                 SavingsChallenges = new List<SavingsChallenge>()
             };
 
             Random rnd = new Random();
+
+            // For Date
+
             for (int i = 0; i < SavingsPlan.Days; i++)
             {
-                int r = rnd.Next(8, 14); //returns random integers < 10
-
-                SavingsChallenge S = new SavingsChallenge(new DateTime(), (decimal)r);
+                decimal d = (decimal)rnd.Next(8, 14);
+                d += (decimal)rnd.Next(1, 100) / 100.00M;
+                DateTime DT = new DateTime(2021, 12, i + 1);
+                SavingsChallenge S = new SavingsChallenge(DT, d);
+                SavingsPlan.TotalSavingsAmount += d;
                 SavingsPlan.SavingsChallenges.Add(S);
             }
+
+            SavingsHistory = new ObservableCollection<SavingsChallenge>();
 
             for (int i = 0; i < 8; i++)
             {
                 SavingsHistory.Add(SavingsPlan.SavingsChallenges[i]);
                 SavingsPlan.SavingsChallenges[i].IsCompleted = true;
-                SavingsPlan.CurrentSavingsAmount += SavingsHistory[i].Amount;
+                SavingsPlan.CurrentSavingsAmount += SavingsPlan.SavingsChallenges[i].Amount;
             }
 
             // Today's Savings Amount should be extracted from
             // the SavingsChallenges list in the SavingsPlan.
+
+            /*int x = 0;
+            do
+            {
+                bool Check = 
+                if (SavingsPlan.SavingsChallenges[x].IsCompleted != true)
+                {
+                    TodaysSavingsAmount = SavingsPlan.SavingsChallenges[x].Amount;
+                }
+
+                i++;
+            } while (x < SavingsPlan.Days && ); */
 
 
             // The SavingsHistory should be loaded from the

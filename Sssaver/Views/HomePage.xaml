@@ -100,10 +100,66 @@
 
                 <Grid Grid.Row="5" Grid.RowSpan="2"
                       BackgroundColor="{StaticResource White}">
+                    <StackLayout>
+                        <Label Text="History"  FontSize="Large" FontAttributes="Bold" />
 
-                    <Label Text="History"  FontSize="Large" FontAttributes="Bold" />
+                        <CollectionView
+                            x:Name="SavingsHistoryView"
+                            ItemsLayout="VerticalGrid, 1"
+                            ItemsSource="{Binding SavingsHistory}"
+                            Margin="20">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HeightRequest="20" Padding="5">
+                                        <Grid 
+                                        x:DataType="model:SavingsChallenge"
+                                        Grid.Column="0">
+                                            <FlexLayout>
+                                                <Label Text="{Binding ScheduledDate.Day}"  FontSize="Medium"/>
+                                                <Label Text="/"  FontSize="Medium"/>
+                                                <Label Text="{Binding ScheduledDate.Month}"  FontSize="Medium"/>
+                                                <Label Text="/"  FontSize="Medium"/>
+                                                <Label Text="{Binding ScheduledDate.Year}"  FontSize="Medium"/>
+                                            </FlexLayout>
+                                        </Grid>
+                                        <Grid Grid.Column="1">
+                                            <FlexLayout>
+                                                <Label Text="+$"  FontSize="Medium"/>
+                                                <Label Text="{Binding Amount}"  FontSize="Medium"/>
+                                            </FlexLayout>
+                                        </Grid>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
 
+                        <!--<FlexLayout>
+                                            <Label Text="$"  FontSize="Medium"/>
+                                            <Label Text="{Binding Amount}"  FontSize="Medium"/>
+                                            <Label Text="                           "  FontSize="Medium"/>
+                                            <Label Text="{Binding ScheduledDate.Day}"  FontSize="Medium"/>
+                                            {Binding IsFavorite, Converter={StaticResource boolToFavIcon}}
+                                        </FlexLayout> -->
 
+                        <!--<ListView 
+                                ItemsSource="{Binding SavingsHistory}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout
+                                            Padding="8"
+                                            HeightRequest="50"
+                                            HorizontalOptions="Start"
+                                            Orientation="Vertical"
+                                            VerticalOptions="Start"
+                                            x:DataType="model:SavingsChallenge"
+                                            BackgroundColor="Red">
+
+                                    </StackLayout>
+                                    
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView> -->
+                    </StackLayout>
                 </Grid>
 
             </Grid>
