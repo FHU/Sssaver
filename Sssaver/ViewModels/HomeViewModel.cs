@@ -2,6 +2,8 @@
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using Sssaver.Models;
+using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace Sssaver.ViewModels
 {
@@ -9,24 +11,28 @@ namespace Sssaver.ViewModels
     {
         public SavingsPlan SavingsPlan { get; set; }
 
-        public decimal TodaysSavingsAmount { get; set; }
+        public SavingsChallenge TodaysSavingsChallenge { get; set; }
+
+        public decimal TodaysSavingsAmount => TodaysSavingsChallenge.Amount;
 
         public ObservableCollection<SavingsChallenge> SavingsHistory { get; set; }
+
+        public Command RevealSavingsChallenge { set; get; }
+
+        public Command Save { set; get; }
 
         public bool challengeRevealed = false;
         public bool ChallengeRevealed
         {
             get { return challengeRevealed; }
-            set { SetProperty(ref challengeRevealed, value); }
-        }
-
-        public bool ChallengeNotRevealed
-        {
-            get
-            {
-                return !ChallengeRevealed;
+            set
+            { 
+                SetProperty(ref challengeRevealed, value);
+                OnPropertyChanged("ChallengeNotRevealed");
             }
         }
+
+        public bool ChallengeNotRevealed => !ChallengeRevealed;
 
         public HomeViewModel()
         {
@@ -38,7 +44,7 @@ namespace Sssaver.ViewModels
                 Days = 30,
                 TotalSavingsAmount = 0M,
                 CurrentSavingsAmount = 0M,
-                StartDate = new DateTime(), //2020, 12, 1
+                StartDate = new DateTime(2020, 12, 1),
                 EndDate = new DateTime(2020, 12, 30),
                 SavingsChallenges = new List<SavingsChallenge>()
             };
@@ -57,6 +63,41 @@ namespace Sssaver.ViewModels
                 SavingsPlan.SavingsChallenges.Add(S);
             }
 
+            // Today's Savings Amount should be extracted from
+            // the SavingsChallenges list in the SavingsPlan.
+
+            RevealSavingsChallenge = new Command(
+            execute: () =>
+            {
+                ChallengeRevealed = true;
+            });
+
+            int x = 0;
+            do
+            {
+                if (SavingsPlan.SavingsChallenges[x].IsCompleted != true)
+                {
+                    TodaysSavingsChallenge = SavingsPlan.SavingsChallenges[x];
+                }
+                else
+                {
+                    x++;
+                }
+            } while (x < SavingsPlan.Days && SavingsPlan.SavingsChallenges[x].IsCompleted != true);
+
+
+            Save = new Command(
+            execute: () =>
+            {
+                SavingsPlan.CurrentSavingsAmount += TodaysSavingsAmount;
+                SavingsPlan.SavingsChallenges[x].IsCompleted = true;
+                TodaysSavingsChallenge.IsCompleted = true;
+            });
+
+
+            // The SavingsHistory should be loaded from the
+            // SavingsChallenges list in the SavingsPlan.
+
             SavingsHistory = new ObservableCollection<SavingsChallenge>();
 
             for (int i = 0; i < 8; i++)
@@ -65,25 +106,6 @@ namespace Sssaver.ViewModels
                 SavingsPlan.SavingsChallenges[i].IsCompleted = true;
                 SavingsPlan.CurrentSavingsAmount += SavingsPlan.SavingsChallenges[i].Amount;
             }
-
-            // Today's Savings Amount should be extracted from
-            // the SavingsChallenges list in the SavingsPlan.
-
-            /*int x = 0;
-            do
-            {
-                bool Check = 
-                if (SavingsPlan.SavingsChallenges[x].IsCompleted != true)
-                {
-                    TodaysSavingsAmount = SavingsPlan.SavingsChallenges[x].Amount;
-                }
-
-                i++;
-            } while (x < SavingsPlan.Days && ); */
-
-
-            // The SavingsHistory should be loaded from the
-            // SavingsChallenges list in the SavingsPlan.
         }
 
         public string ProgressAmount
@@ -112,11 +134,6 @@ namespace Sssaver.ViewModels
                 string[] Months = new string[] { "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" };
                 return Months[SavingsPlan.EndDate.Month - 1] + " " + SavingsPlan.EndDate.Day;
             }
-        }
-
-        public void RevealSavingsChellenge()
-        {
-            ChallengeRevealed = true;
         }
     }
 }

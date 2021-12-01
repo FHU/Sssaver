@@ -14,12 +14,16 @@ namespace Sssaver.Models
         public bool IsCompleted
         {
             get { return isCompleted; }
-            set { SetProperty(ref isCompleted, value); }
+            set {
+                SetProperty(ref isCompleted, value);
+                OnPropertyChanged("IsNotCompleted");
+            }
         }
+
+        public bool IsNotCompleted => !IsCompleted;
 
         public SavingsChallenge(DateTime scheduledDate = new DateTime(), decimal amount = (decimal)0.0)
         {
-            Console.WriteLine(scheduledDate);
             ScheduledDate = scheduledDate;
             Amount = amount;
         }

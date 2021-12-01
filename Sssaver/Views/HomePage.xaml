@@ -40,7 +40,7 @@
                 <Grid Grid.Row="1" Grid.RowSpan="2">
                     <StackLayout>
                         <Label Text="Today's Savings Challenge"  FontSize="Large" FontAttributes="Bold"/>
-                        <StackLayout IsVisible="true" Padding="20">
+                        <StackLayout IsVisible="{Binding ChallengeNotRevealed}" Padding="20">
                             <Button Text="?"
                                     FontSize="100"
                                     WidthRequest="500"
@@ -50,9 +50,10 @@
                                     VerticalOptions="CenterAndExpand"
                                     HorizontalOptions="Center"
                                     BackgroundColor="AntiqueWhite"
-                                    TextColor="Black"/>
+                                    TextColor="Black"
+                                    Command="{Binding RevealSavingsChallenge}"/>
                         </StackLayout>
-                        <StackLayout IsVisible="false">
+                        <StackLayout IsVisible="{Binding ChallengeRevealed}">
                             <StackLayout HorizontalOptions="Center"
                                          BackgroundColor="LightBlue"
                                          WidthRequest="250"
@@ -63,7 +64,7 @@
                             <StackLayout HorizontalOptions="Center"
                                          WidthRequest="350"
                                          Padding="10"
-                                         IsVisible="false">
+                                         IsVisible="{Binding TodaysSavingsChallenge.IsNotCompleted}">
                                 <Button
                                     Text="Save!"
                                     FontSize="50"
@@ -76,9 +77,9 @@
                                     HorizontalOptions="Center"
                                     BackgroundColor="GreenYellow"
                                     TextColor="Black"
-                                    />
+                                    Command="{Binding Save}"/>
                             </StackLayout>
-                            <Label Text="You are Awesome!"  FontSize="Large" HorizontalOptions="Center" IsVisible="false"/>
+                            <Label Text="You are Awesome!"  FontSize="Large" HorizontalOptions="Center" IsVisible="{Binding TodaysSavingsChallenge.IsCompleted}"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -132,33 +133,6 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-
-                        <!--<FlexLayout>
-                                            <Label Text="$"  FontSize="Medium"/>
-                                            <Label Text="{Binding Amount}"  FontSize="Medium"/>
-                                            <Label Text="                           "  FontSize="Medium"/>
-                                            <Label Text="{Binding ScheduledDate.Day}"  FontSize="Medium"/>
-                                            {Binding IsFavorite, Converter={StaticResource boolToFavIcon}}
-                                        </FlexLayout> -->
-
-                        <!--<ListView 
-                                ItemsSource="{Binding SavingsHistory}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout
-                                            Padding="8"
-                                            HeightRequest="50"
-                                            HorizontalOptions="Start"
-                                            Orientation="Vertical"
-                                            VerticalOptions="Start"
-                                            x:DataType="model:SavingsChallenge"
-                                            BackgroundColor="Red">
-
-                                    </StackLayout>
-                                    
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView> -->
                     </StackLayout>
                 </Grid>
 
