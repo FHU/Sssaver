@@ -11,12 +11,10 @@ namespace Sssaver.ViewModels
     {
         public SavingsPlan SavingsPlan { get; set; }
 
-        public SavingsChallenge TodaysSavingsChallenge { get; set; }
-
-        public decimal TodaysSavingsAmount => TodaysSavingsChallenge.Amount;
+        public decimal TodaysSavingsAmount { get; set; }
+        
 
         public ObservableCollection<SavingsChallenge> SavingsHistory { get; set; }
-
         public Command RevealSavingsChallenge { set; get; }
 
         public Command Save { set; get; }
@@ -33,6 +31,20 @@ namespace Sssaver.ViewModels
         }
 
         public bool ChallengeNotRevealed => !ChallengeRevealed;
+
+        public bool hasSaved = false;
+        public bool HasSaved
+        {
+            get { return hasSaved; }
+            set
+            {
+                SetProperty(ref hasSaved, value);
+                OnPropertyChanged("HasNotSaved");
+                OnPropertyChanged("ProgressAmount");
+            }
+        }
+
+        public bool HasNotSaved => !HasSaved;
 
         public HomeViewModel()
         {
@@ -56,7 +68,6 @@ namespace Sssaver.ViewModels
             for (int i = 0; i < SavingsPlan.Days; i++)
             {
                 decimal d = (decimal)rnd.Next(8, 14);
-                d += (decimal)rnd.Next(1, 100) / 100.00M;
                 DateTime DT = new DateTime(2021, 12, i + 1);
                 SavingsChallenge S = new SavingsChallenge(DT, d);
                 SavingsPlan.TotalSavingsAmount += d;
@@ -66,38 +77,6 @@ namespace Sssaver.ViewModels
             // Today's Savings Amount should be extracted from
             // the SavingsChallenges list in the SavingsPlan.
 
-            RevealSavingsChallenge = new Command(
-            execute: () =>
-            {
-                ChallengeRevealed = true;
-            });
-
-            int x = 0;
-            do
-            {
-                if (SavingsPlan.SavingsChallenges[x].IsCompleted != true)
-                {
-                    TodaysSavingsChallenge = SavingsPlan.SavingsChallenges[x];
-                }
-                else
-                {
-                    x++;
-                }
-            } while (x < SavingsPlan.Days && SavingsPlan.SavingsChallenges[x].IsCompleted != true);
-
-
-            Save = new Command(
-            execute: () =>
-            {
-                SavingsPlan.CurrentSavingsAmount += TodaysSavingsAmount;
-                SavingsPlan.SavingsChallenges[x].IsCompleted = true;
-                TodaysSavingsChallenge.IsCompleted = true;
-            });
-
-
-            // The SavingsHistory should be loaded from the
-            // SavingsChallenges list in the SavingsPlan.
-
             SavingsHistory = new ObservableCollection<SavingsChallenge>();
 
             for (int i = 0; i < 8; i++)
@@ -106,6 +85,41 @@ namespace Sssaver.ViewModels
                 SavingsPlan.SavingsChallenges[i].IsCompleted = true;
                 SavingsPlan.CurrentSavingsAmount += SavingsPlan.SavingsChallenges[i].Amount;
             }
+
+            RevealSavingsChallenge = new Command(
+            execute: () =>
+            {
+                ChallengeRevealed = true;
+            });
+
+            TodaysSavingsAmount = 0.0M;
+            int x = 0;
+            do
+            {
+                if (SavingsPlan.SavingsChallenges[x].IsCompleted == false)
+                {
+                    TodaysSavingsAmount = SavingsPlan.SavingsChallenges[x].Amount;
+                }
+                else
+                {
+                    x++;
+                }
+            } while (x < SavingsPlan.Days && (TodaysSavingsAmount == 0.0M));
+
+
+            Save = new Command(
+            execute: () =>
+            {
+                SavingsPlan.CurrentSavingsAmount += TodaysSavingsAmount;
+                SavingsPlan.SavingsChallenges[x].IsCompleted = true;
+                SavingsHistory.Add(SavingsPlan.SavingsChallenges[x]);
+                HasSaved = true;
+            });
+
+
+            // The SavingsHistory should be loaded from the
+            // SavingsChallenges list in the SavingsPlan.
+
         }
 
         public string ProgressAmount
@@ -115,8 +129,6 @@ namespace Sssaver.ViewModels
                 return "$" + SavingsPlan.CurrentSavingsAmount + "/$" + SavingsPlan.TotalSavingsAmount;
             }
         }
-
-        public string layoutBounds;
 
         public string StartDate
         {

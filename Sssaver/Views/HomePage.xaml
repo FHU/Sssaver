@@ -21,6 +21,7 @@
                             <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" HorizontalOptions="Center" />
                             <Label Text="{Binding ProgressAmount}" FontSize="Medium" HorizontalOptions="Center" />
                             <FlexLayout>
+
                                 <AbsoluteLayout WidthRequest="40">
 
                                 </AbsoluteLayout>
@@ -58,13 +59,15 @@
                                          BackgroundColor="LightBlue"
                                          WidthRequest="250"
                                          HeightRequest="120"
-                                         Margin="0, 20, 0, 20">
+                                         Margin="0, 20, 0, 20"
+                                         >
+                                <Label Text="{Binding TodaysSavingsAmount}"  FontSize="Large" FontAttributes="Bold"/>
 
                             </StackLayout>
                             <StackLayout HorizontalOptions="Center"
                                          WidthRequest="350"
                                          Padding="10"
-                                         IsVisible="{Binding TodaysSavingsChallenge.IsNotCompleted}">
+                                         IsVisible="{Binding HasNotSaved}">
                                 <Button
                                     Text="Save!"
                                     FontSize="50"
@@ -79,7 +82,7 @@
                                     TextColor="Black"
                                     Command="{Binding Save}"/>
                             </StackLayout>
-                            <Label Text="You are Awesome!"  FontSize="Large" HorizontalOptions="Center" IsVisible="{Binding TodaysSavingsChallenge.IsCompleted}"/>
+                            <Label Text="You are Awesome!"  FontSize="Large" HorizontalOptions="Center" IsVisible="{Binding HasSaved}"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -112,21 +115,20 @@
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid HeightRequest="20" Padding="5">
-                                        <Grid 
-                                        x:DataType="model:SavingsChallenge"
-                                        Grid.Column="0">
-                                            <FlexLayout>
-                                                <Label Text="{Binding ScheduledDate.Day}"  FontSize="Medium"/>
-                                                <Label Text="/"  FontSize="Medium"/>
-                                                <Label Text="{Binding ScheduledDate.Month}"  FontSize="Medium"/>
-                                                <Label Text="/"  FontSize="Medium"/>
-                                                <Label Text="{Binding ScheduledDate.Year}"  FontSize="Medium"/>
-                                            </FlexLayout>
-                                        </Grid>
-                                        <Grid Grid.Column="1">
+                                        <Grid Grid.Column="0" HorizontalOptions="Center">
                                             <FlexLayout>
                                                 <Label Text="+$"  FontSize="Medium"/>
                                                 <Label Text="{Binding Amount}"  FontSize="Medium"/>
+                                            </FlexLayout>
+                                        </Grid>
+                                        <Grid Grid.Column="1"
+                                            HorizontalOptions="Center">
+                                            <FlexLayout>
+                                                <Label Text="{Binding ScheduledDate.Month}"  FontSize="Medium"/>
+                                                <Label Text="/"  FontSize="Medium"/>
+                                                <Label Text="{Binding ScheduledDate.Day}"  FontSize="Medium"/>
+                                                <Label Text="/"  FontSize="Medium"/>
+                                                <Label Text="{Binding ScheduledDate.Year}"  FontSize="Medium"/>
                                             </FlexLayout>
                                         </Grid>
                                     </Grid>
