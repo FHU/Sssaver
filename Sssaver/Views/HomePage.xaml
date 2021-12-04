@@ -56,12 +56,36 @@
                         </StackLayout>
                         <StackLayout IsVisible="{Binding ChallengeRevealed}">
                             <StackLayout HorizontalOptions="Center"
-                                         BackgroundColor="LightBlue"
-                                         WidthRequest="250"
-                                         HeightRequest="120"
-                                         Margin="0, 20, 0, 20"
-                                         >
-                                <Label Text="{Binding TodaysSavingsAmount}"  FontSize="Large" FontAttributes="Bold"/>
+                                        BackgroundColor="{StaticResource Tertiary}"
+                                        WidthRequest="250"
+                                        HeightRequest="120"
+                                        Margin="0, 20, 0, 20">
+
+                                <Label Text="$"
+                                       FontSize="30"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="Start"
+                                       Margin="5,0,0,-20"/>
+                                <StackLayout Margin="95,0,0,0">
+                                    <FlexLayout>
+                                        <Label Text="$"
+                                               FontSize="50"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"
+                                               />
+                                        <Label Text="{Binding TodaysSavingsAmount}"
+                                               FontSize="50"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"
+                                               />
+                                    </FlexLayout>
+                                </StackLayout>
+
+                                <Label Text="$"
+                                       FontSize="30"
+                                       FontAttributes="Bold"
+                                       HorizontalTextAlignment="End"
+                                       Margin="0,-20,5,0"/>
 
                             </StackLayout>
                             <StackLayout HorizontalOptions="Center"
@@ -82,7 +106,7 @@
                                     TextColor="Black"
                                     Command="{Binding Save}"/>
                             </StackLayout>
-                            <Label Text="You are Awesome!"  FontSize="Large" HorizontalOptions="Center" IsVisible="{Binding HasSaved}"/>
+                            <Label Text="You are Awesome!" FontSize="40" HorizontalOptions="Center" IsVisible="{Binding HasSaved}"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -97,9 +121,6 @@
                             <Image Source="{Binding SavingsPlan.GoalImage}" Scale="2" Margin="40"></Image>
                         </StackLayout>
                     </StackLayout>
-
-
-
                 </Grid>
 
                 <Grid Grid.Row="5" Grid.RowSpan="2"
@@ -124,11 +145,11 @@
                                         <Grid Grid.Column="1"
                                             HorizontalOptions="Center">
                                             <FlexLayout>
-                                                <Label Text="{Binding ScheduledDate.Month}"  FontSize="Medium"/>
+                                                <Label Text="{Binding ActualDate.Month}"  FontSize="Medium"/>
                                                 <Label Text="/"  FontSize="Medium"/>
-                                                <Label Text="{Binding ScheduledDate.Day}"  FontSize="Medium"/>
+                                                <Label Text="{Binding ActualDate.Day}"  FontSize="Medium"/>
                                                 <Label Text="/"  FontSize="Medium"/>
-                                                <Label Text="{Binding ScheduledDate.Year}"  FontSize="Medium"/>
+                                                <Label Text="{Binding ActualDate.Year}"  FontSize="Medium"/>
                                             </FlexLayout>
                                         </Grid>
                                     </Grid>

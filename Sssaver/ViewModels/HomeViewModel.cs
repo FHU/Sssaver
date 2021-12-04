@@ -67,7 +67,7 @@ namespace Sssaver.ViewModels
 
             for (int i = 0; i < SavingsPlan.Days; i++)
             {
-                decimal d = (decimal)rnd.Next(8, 14);
+                decimal d = (decimal)rnd.Next(4, 9);
                 DateTime DT = new DateTime(2021, 12, i + 1);
                 SavingsChallenge S = new SavingsChallenge(DT, d);
                 SavingsPlan.TotalSavingsAmount += d;
@@ -83,6 +83,7 @@ namespace Sssaver.ViewModels
             {
                 SavingsHistory.Add(SavingsPlan.SavingsChallenges[i]);
                 SavingsPlan.SavingsChallenges[i].IsCompleted = true;
+                SavingsPlan.SavingsChallenges[i].ActualDate = SavingsPlan.SavingsChallenges[i].ScheduledDate;
                 SavingsPlan.CurrentSavingsAmount += SavingsPlan.SavingsChallenges[i].Amount;
             }
 
@@ -112,6 +113,7 @@ namespace Sssaver.ViewModels
             {
                 SavingsPlan.CurrentSavingsAmount += TodaysSavingsAmount;
                 SavingsPlan.SavingsChallenges[x].IsCompleted = true;
+                SavingsPlan.SavingsChallenges[x].ActualDate = DateTime.Now;
                 SavingsHistory.Add(SavingsPlan.SavingsChallenges[x]);
                 HasSaved = true;
             });
