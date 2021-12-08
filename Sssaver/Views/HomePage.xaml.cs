@@ -16,5 +16,10 @@ namespace Sssaver.Views
             BindingContext = homeViewModel = new HomeViewModel();
         }
 
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            InitializeComponent();
+            
+        }
     }
 }

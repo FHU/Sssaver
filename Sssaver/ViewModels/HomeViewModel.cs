@@ -8,6 +8,8 @@ namespace Sssaver.ViewModels
     {
         public SavingsPlan SavingsPlan { get; set; }
 
+      
+
         public decimal TodaysSavingsAmount { get; set; }
         
         public ObservableCollection<SavingsChallenge> SavingsHistory { get; set; }
@@ -21,18 +23,25 @@ namespace Sssaver.ViewModels
                 SavingsPlan = new SavingsPlan()
                 {
                     Days = 30,
-                    Name = "Viper",
-                    CurrentSavingsAmount = 30,
-                    TotalSavingsAmount = 100
+                    Name = "StudiousViper",
+                    Goal = "Save to pay off student loans for 6 months!",
+                    CurrentSavingsAmount = 100,
+                    TotalSavingsAmount = 500
                 };
+
+
+
 
                 // Today's Savings Amount should be extracted from
                 // the SavingsChallenges list in the SavingsPlan.
-
+               
 
                 // The SavingsHistory should be loaded from the
                 // SavingsChallenges list in the SavingsPlan.
+
+                
             }
+            
         }
     }
 }

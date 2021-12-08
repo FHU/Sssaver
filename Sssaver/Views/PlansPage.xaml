@@ -6,6 +6,37 @@
     Title="Plans"
     >
     <ContentPage.Content>
-        
+        <StackLayout BackgroundColor="{StaticResource LightGreen}" Padding="20, 10, 20, 20">
+
+            <Frame BorderColor="Black"
+                   CornerRadius="10"
+                   HasShadow="True"
+                   >
+                <Label Text="$1,300/$2,500" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Title" />
+            </Frame>
+
+            <Frame Padding="3" Margin="0" BackgroundColor="White" CornerRadius="30">
+                <Grid Padding="0" Margin="0" VerticalOptions="EndAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"  />
+                        <ColumnDefinition Width="12" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="52%" Margin="0" TextColor="#000000" 
+                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                       Grid.Row="0" Grid.Column="0" BackgroundColor="#6cff00" />
+                    <Label Text="" Margin="0" TextColor="#000000" 
+                       VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                       Grid.Row="0" Grid.Column="1" BackgroundColor="Transparent" />
+                </Grid>
+            </Frame>
+
+            <Frame BorderColor="Black" BackgroundColor="White" CornerRadius="30" Margin="0, 50, 0,0" Padding="10, 80, 10, 100">
+                <Label Text="Goal: &#10; Save at least $50 a Day!" TextColor="Black" FontSize="Title" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+            </Frame>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

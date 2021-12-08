@@ -15,16 +15,16 @@
                       BackgroundColor="{StaticResource LightGreen}">
                     <StackLayout>
 
-                        <Label Text="Progress" FontSize="Medium" />
+                        <Label Text="Progress" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
 
-                        <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" />
+                        <Label Text="Studious Viper Plan" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        
+                        <Label Text="23 Days Left" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                       
 
-                        <Label Text="{Binding SavingsPlan.Days}" FontSize="Large" />
-
-
-                        <Label Text="{Binding SavingsPlan.CurrentSavingsAmount}" FontSize="Medium" />
-
-                        <Label Text="{Binding SavingsPlan.PercentSavingsCompleted}" FontSize="Medium" />
+                        <Label Text="$1300 saved" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            
+                        <Label Text="52% complete" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
 
 
                     </StackLayout>
@@ -34,7 +34,19 @@
                 <Grid Grid.Row="1"
                       BackgroundColor="{StaticResource Secondary}">
 
-                    <Label Text="Today's Challenge" FontSize="Medium" />
+                   
+
+                    
+                    
+                    <Button Text="Daily Goal: Save $75! &#10; Click to Save!"
+                            FontSize="Title"
+                            Clicked="Button_Clicked"
+                            WidthRequest="40"
+                            HeightRequest="24">
+                        
+                    </Button>
+                    
+                    
 
 
                 </Grid>
@@ -42,16 +54,23 @@
                 <Grid Grid.Row="2"
                       BackgroundColor="{StaticResource Tertiary}">
 
-                    <Label Text="Goal" FontSize="Medium" />
+                    <Label Text="End Goal" FontSize="Medium" HorizontalOptions="Center" Padding="0, 5, 0, 0" />
+
+                    <Frame  
+                            BorderColor="Black" CornerRadius="30" BackgroundColor="{StaticResource Secondary}" Margin="30, 30, 30, 30">
 
 
+                        <Label Text="$2500" TextColor="White" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+
+                    </Frame>
                 </Grid>
 
                 <Grid Grid.Row="3"
                       BackgroundColor="{StaticResource White}">
 
-                    <Label Text="History" FontSize="Medium" />
-
+                    <Label Text="History" FontSize="Medium" HorizontalTextAlignment="Center" />
+                    <Label Text="-Initial Entry: $1225" Padding=" 10, 20, 10, 10" FontSize="Small"/>
+                    <Label Text="-10/13/21: $75 saved" Padding=" 10, 40, 10, 10" FontSize="Small" />
 
                 </Grid>
 
