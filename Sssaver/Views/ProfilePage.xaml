@@ -88,6 +88,8 @@
                                FontAttributes="Italic"
                             >
                         </Label>
+                        <Label Text="In Progress" Margin="45,110,0,0"
+                               FontAttributes="Italic"></Label>
                         <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/milk+carton+costume+TRANSPARENT.png"
                                WidthRequest="150"
                                HorizontalOptions="End"
@@ -125,7 +127,7 @@
                                 HorizontalOptions="End"
                                 Margin="25">
                             </Label>
-                            <Label Text="November 3, 2021" FontAttributes="Italic" Margin="5">
+                            <Label Text="November 5, 2021" FontAttributes="Italic" Margin="5">
                             </Label>
                             <Label Text="$100"
                                    Margin="30,25,0,0"
@@ -153,7 +155,7 @@
                                 HorizontalOptions="End"
                                 Margin="25">
                             </Label>
-                            <Label Text="December 5, 2021" FontAttributes="Italic" Margin="5">
+                            <Label Text="December 3, 2021" FontAttributes="Italic" Margin="5">
                             </Label>
                             <Label Text="$110"
                                    Margin="30,25,0,0"

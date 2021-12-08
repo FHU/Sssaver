@@ -50,7 +50,7 @@
                                TextColor="#18522d" 
                                />
 
-                        <Label Text="$210 of $300" 
+                        <Label Text="$270 of $300" 
                                FontSize="Small" 
                                HorizontalTextAlignment="Center"
                                FontAttributes="Italic"
