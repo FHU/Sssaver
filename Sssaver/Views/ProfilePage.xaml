@@ -6,6 +6,178 @@
     Title="Profile"
     >
     <ContentPage.Content>
-        
+        <ScrollView >
+
+            <Grid Padding="16" RowSpacing="8">
+
+
+                <StackLayout Padding="40">
+                    
+        <!--Profile pic, member since, usernmae-->
+                    <Grid Grid.Row="0">
+                        
+                        <Label Text="" BackgroundColor="#629674" 
+                               Margin="-40,-40,-40,-300" 
+                               ></Label>
+
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/gears.png"
+                                WidthRequest="30"
+                               HorizontalOptions="End"
+                               Margin="0,150,40,0">
+                        </Image>
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/profile+alligator.png"
+                                   Margin="40,-60,40,0"
+                            ></Image>
+
+                        <Label Text="wormy2021" 
+                               TextColor="Black" 
+                               HorizontalOptions="Center" 
+                               Margin="30,160,30,0"
+                               FontSize="Large"
+                            ></Label>
+                        <Label Text="Member since 11/5" 
+                               TextColor="Black" 
+                               HorizontalOptions="Center" 
+                               Margin="0,190,0,0"
+                               FontAttributes="Italic"
+                            ></Label>
+                    </Grid>
+
+        <!--Savings plan-->
+                    <Grid Grid.Row="1">
+                        <Label Text="Your Savings Plan" 
+                               Margin="-30,30,0,0"
+                               FontSize="Large"
+                               HorizontalOptions="Start"
+                            ></Label>
+                        <Label Text="Viper"
+                               HorizontalOptions="End"
+                               Margin="25,35,0,0"
+                               FontSize="Medium"
+                               FontAttributes="Italic"
+                               >
+                        </Label>
+                        
+                    </Grid>
+           <!--Your Goals-->
+                    <Grid Grid.Row="2"
+                          BackgroundColor="#629674" Margin="-40,0,-40,0" 
+                          >
+                        <!--these are the little background rows for costume adn casket-->
+                        <Label Text=""
+                            BackgroundColor="#a9d5c2"
+                             Margin="10,70,10,110">
+
+                        </Label>
+                        <Label Text=""
+                            BackgroundColor="#a9d5c2"
+                             Margin="10,170,10,10">
+
+                        </Label>
+                        <!--end-->
+
+                        <Label Text="Your Goals" 
+                                Margin="10,30,0,0"
+                               FontSize="Large"
+                               
+                            ></Label>
+                        <Label Text="Snazzy Costume: $300"
+                               HorizontalOptions="Start"
+                               Margin="40,80,0,0"
+                               FontSize="Medium"
+                               FontAttributes="Italic"
+                            >
+                        </Label>
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/milk+carton+costume+TRANSPARENT.png"
+                               WidthRequest="150"
+                               HorizontalOptions="End"
+                               Margin="0,0,-20,40">
+                        </Image>
+                        
+
+                        <Label Text="A Casket: $1,099"
+                                HorizontalOptions="Start"
+                               Margin="40,180,0,0"
+                               FontSize="Medium"
+                               FontAttributes="Italic"
+                               >
+                        </Label>
+
+                        
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/casket.png"
+                               WidthRequest="100"
+                               HorizontalOptions="End"
+                               Margin="0,180,0,0">
+                        </Image>
+                    </Grid>
+
+
+        <!--Deposit history-->
+                    <Grid Grid.Row="3" BackgroundColor="#629674" Margin="-40,0,-40,0" >
+                        <Label Text="Deposit History" 
+                               Margin="10,30,0,0"
+                               FontSize="Large"
+                            ></Label>
+
+                        <Grid Grid.Row="1" BackgroundColor="#a9d5c2" Margin="10,0,10,0">
+                            <Label 
+                                Text="Completed"
+                                HorizontalOptions="End"
+                                Margin="25">
+                            </Label>
+                            <Label Text="November 3, 2021" FontAttributes="Italic" Margin="5">
+                            </Label>
+                            <Label Text="$100"
+                                   Margin="30,25,0,0"
+                                   FontSize="Large"
+                                   ></Label>
+                        </Grid>
+
+                        <Grid Grid.Row="2" BackgroundColor="#a9d5c2" Margin="10,0,10,0">
+                            <Label 
+                                Text="Completed"
+                                HorizontalOptions="End"
+                                Margin="25">
+                            </Label>
+                            <Label Text="November 19, 2021" FontAttributes="Italic" Margin="5">
+                            </Label>
+                            <Label Text="$60"
+                                   Margin="30,25,0,0"
+                                   FontSize="Large"
+                                   ></Label>
+                        </Grid>
+                        
+                        <Grid Grid.Row="3" BackgroundColor="#a9d5c2" Margin="10,0,10,0">
+                            <Label 
+                                Text="Completed"
+                                HorizontalOptions="End"
+                                Margin="25">
+                            </Label>
+                            <Label Text="December 5, 2021" FontAttributes="Italic" Margin="5">
+                            </Label>
+                            <Label Text="$110"
+                                   Margin="30,25,0,0"
+                                   FontSize="Large"
+                                   ></Label>
+                        </Grid>
+                    </Grid>
+                    
+                    <Grid Grid.Row="3">
+                        <Label BackgroundColor="#629674" Margin="-40,-20,-40,5" ></Label>
+
+
+                        <Label Margin="0,0,0,25"></Label>
+                        <Button  Text="Edit Profile"
+                               Margin="0,0,0,20" 
+                               HorizontalOptions="Center"
+                               BackgroundColor="{StaticResource Secondary}"
+                               
+                            ></Button>
+                        
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>

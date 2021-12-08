@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Sssaver.ViewModels"
-    Title="$ssaver"
+    Title="$Saver" 
     x:Class="Sssaver.Views.HomePage"
     BackgroundColor="{StaticResource White}"
     >
@@ -13,47 +13,151 @@
 
                 <Grid Grid.Row="0"
                       BackgroundColor="{StaticResource LightGreen}">
+
                     <StackLayout>
 
-                        <Label Text="Progress" FontSize="Medium" />
+                        <Label Text="Progress" 
+                               FontSize="Medium" />
 
-                        <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" />
+                        <Label Text="{Binding SavingsPlan.Name}" 
+                               FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Bold"
+                               TextColor="#18522d" 
+                               />
+                        
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/homepage/progressbar_percent.png"
+                                HorizontalOptions="Center"
+                                Margin="20,0,0,-20"
+                           ></Image>
 
-                        <Label Text="{Binding SavingsPlan.Days}" FontSize="Large" />
+                        <Label Text="You're almost there!"
+                                FontSize="Medium" TextColor="#18522d" 
+                                HorizontalOptions="Center"
+                               Margin="10"
+                           ></Label>
 
+                        <Label Text=" Days Left:
+                               
+                               18" FontSize="Large" 
+                               HorizontalTextAlignment="Center"
+                               BackgroundColor="Beige"
+                               TextColor="#18522d"/>
 
-                        <Label Text="{Binding SavingsPlan.CurrentSavingsAmount}" FontSize="Medium" />
+                        <Label Text="Current Savings Amount:" 
+                               FontSize="Medium" 
+                               HorizontalTextAlignment="Center" 
+                               TextColor="#18522d" 
+                               />
 
-                        <Label Text="{Binding SavingsPlan.PercentSavingsCompleted}" FontSize="Medium" />
-
+                        <Label Text="$210 of $300" 
+                               FontSize="Small" 
+                               HorizontalTextAlignment="Center"
+                               FontAttributes="Italic"
+                               Margin="10,10,10,30"/>
 
                     </StackLayout>
 
                 </Grid>
 
                 <Grid Grid.Row="1"
-                      BackgroundColor="{StaticResource Secondary}">
+                      BackgroundColor="#5ca175">
 
-                    <Label Text="Today's Challenge" FontSize="Medium" />
+                    <Label Text="Today's Challenge" 
+                           FontSize="Medium" 
+                           TextColor="White"/>
+                    
+                    <Label Text="{Binding SavingsPlan.Name}" 
+                           FontSize="Large" 
+                           HorizontalTextAlignment="Center" 
+                           FontAttributes="Italic"
+                           Margin="50"/>
 
+                    <Label Text="✨✨✨
+                           
+                           Save money today 
+                           
+                           by cooking at home!
+                           
+                           ✨✨✨" 
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" 
+                           Margin="50,120,50,0"
+                           />
+
+
+                    <Button Text="Deposit $$" 
+                            HorizontalOptions="Center" 
+                            Margin=" 0,240,0,190" 
+                            WidthRequest="200" 
+                            FontSize="Medium"
+                            TextColor="White" 
+                            BackgroundColor="#227540"
+                            ></Button>
 
                 </Grid>
 
                 <Grid Grid.Row="2"
                       BackgroundColor="{StaticResource Tertiary}">
 
-                    <Label Text="Goal" FontSize="Medium" />
+                    <Label Text="Goal" 
+                           FontSize="Large" 
+                           TextColor="White"
+                           />
 
+                    <Label Text="Snazzy Costume" 
+                           Margin="110,150,0,20" 
+                           FontSize="Medium" 
+                           TextColor="White"
+                           FontAttributes="Italic"/>
+
+                    <Label Text="$300" TextColor="{StaticResource LightGreen}"  
+                           FontSize="Header" 
+                           Margin="50,30,0,0" 
+                           FontAttributes="Italic"
+                           />
+
+                    <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/milk+carton+costume+TRANSPARENT.png"
+                           HorizontalOptions="Center"
+                           Margin="0,150,0,0"
+                           WidthRequest="320"
+                           ></Image>
 
                 </Grid>
 
                 <Grid Grid.Row="3"
                       BackgroundColor="{StaticResource White}">
 
-                    <Label Text="History" FontSize="Medium" />
+                    <Label Text="History" FontSize="Medium"/>
+
+                    <Button Text="[12/3] Deposited $110" 
+                            HorizontalOptions="Center" 
+                            Margin=" 0,0,0,390" 
+                            WidthRequest="400" 
+                            FontSize="Medium"
+                            TextColor="DarkGreen"
+                            ></Button>
+                    <Button Text="[11/19] Deposited $60" 
+                            Margin="0,140,0,250" 
+                            WidthRequest="400" 
+                            FontSize="Medium" 
+                            BackgroundColor="LightGreen" 
+                            TextColor="DarkGreen"
+                            ></Button>
+                    <Button Text="[11/5] Deposited $100" 
+                            Margin="0,280,0,130" 
+                            WidthRequest="400" 
+                            FontSize="Medium" 
+                            BackgroundColor="{StaticResource LightGreen}" 
+                            TextColor="DarkGreen"
+                            ></Button>
 
 
                 </Grid>
+
+
+
 
             </Grid>
         </ScrollView>

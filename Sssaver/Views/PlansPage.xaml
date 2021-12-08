@@ -6,6 +6,99 @@
     Title="Plans"
     >
     <ContentPage.Content>
-        
+        <ScrollView >
+
+            <Grid Padding="16" RowSpacing="8">
+
+                
+                    <!--VIPER plan-->
+                    <Grid Grid.Row="0"
+                          BackgroundColor="{StaticResource Secondary}">
+                        
+                        <Label x:Name="msg" Text="Viper Plan" 
+                           FontSize="40" 
+                           HorizontalTextAlignment="Center" 
+                            TextColor="FloralWhite"
+                           HeightRequest="400"
+                           ></Label>
+                        
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/viper.png"
+                               Margin="60,0,60,50"
+                        ></Image>
+                        <Label Text="Deposit $100 or more every two weeks" 
+                           FontSize="Medium" 
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" 
+                           Margin="0,360,0,0" 
+                           ></Label>
+                        <Button Text="Select Plan" 
+                            Margin="40,400,40,30" 
+                            FontSize="Medium" 
+                            BackgroundColor="#227540" 
+                            TextColor="White"
+                            ></Button>
+                    </Grid>
+
+                    <!--PYTHON plan-->
+                    <Grid Grid.Row="1"
+                          BackgroundColor="#5ca175">
+                        <Label Text="Python Plan" 
+                           FontSize="40" 
+                           HorizontalTextAlignment="Center"
+                           TextColor="FloralWhite"
+                       ></Label>
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/pythawn.png"
+                               Margin="0,-80,0,0"
+                        ></Image>
+
+                        <Label Text="Deposit $50 or more every two weeks" 
+                           FontSize="Medium"
+                           HorizontalTextAlignment="Center"
+                            Margin="0,350,0,0"
+                            FontAttributes="Bold"
+                            
+                           ></Label>
+
+                        <Button Text="Select Plan" 
+                            Margin="40,400,40,40" 
+                            FontSize="Medium" 
+                            BackgroundColor="#227540" 
+                            TextColor="White"
+                            ></Button>
+                    </Grid>
+
+                    <!--EARTHWORM plan-->
+                <Grid Grid.Row="2"
+                          BackgroundColor="#7ea38b">
+                    
+                        
+                        <Label Text="Earthworm Plan" 
+                               FontSize="40" 
+                               HorizontalTextAlignment="Center"
+                               TextColor="FloralWhite"
+                        ></Label>
+                    
+                        <Label Text="Deposit $10 or more every two weeks" 
+                               FontSize="Medium" 
+                               HorizontalTextAlignment="Center"
+                               Margin="0,280,0,0"
+                               FontAttributes="Bold"
+                               
+                        ></Label>
+                        
+                        <Image Source="https://backendlessappcontent.com/78F0943F-6D6A-1179-FFBA-E7B34FE7DC00/2778AD9C-D736-4337-99A1-85EAE581AAEC/files/Plans+images/worm.png"
+                               Margin="50,0,40,150"
+                               ></Image>
+                    <Button Text="Select Plan" 
+                            Margin="40,320,40,130" 
+                            FontSize="Medium" 
+                            BackgroundColor="#227540" 
+                            TextColor="White"
+                            ></Button>
+                </Grid>
+
+                
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
