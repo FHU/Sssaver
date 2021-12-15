@@ -8,11 +8,12 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--https://www.behance.net/gallery/89272795/Focus-On-The-Family-Managing-Money-->
-            <Color x:Key="Primary">#24BF93</Color>
-            <Color x:Key="Secondary">#02735E</Color>
-            <Color x:Key="Tertiary">#03A63C</Color>
-            <Color x:Key="LightGreen">#AEF2C6</Color>
-            <Color x:Key="White">#F2f2f2</Color>
+            <Color x:Key="Primary">#0074E0</Color>
+            <Color x:Key="Secondary">#A2D2FF</Color>
+            <Color x:Key="Tertiary">#BDE0FE</Color>
+            <Color x:Key="Pink">#FF70A5</Color>
+            <Color x:Key="LightPink">#FFC8DD</Color>
+            <Color x:Key="White">#FFFFFF</Color>
 
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="{StaticResource White}"></Setter>

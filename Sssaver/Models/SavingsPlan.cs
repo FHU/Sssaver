@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -9,6 +10,9 @@ namespace Sssaver.Models
     {
         public SavingsPlan()
         {
+            SavingsChallenges = new ObservableCollection<SavingsChallenge>();
+            ChallengeHistory = new ObservableCollection<SavingsChallenge>();
+            FutureChallenges = new ObservableCollection<SavingsChallenge>();
         }
 
         public string Name { get; set; }
@@ -32,6 +36,7 @@ namespace Sssaver.Models
 
                 // Trigger the linked property to also update.
                 OnPropertyChanged("PercentSavingsCompleted");
+                OnPropertyChanged("PlanProgress");
             }
         }
 
@@ -43,16 +48,21 @@ namespace Sssaver.Models
             }
         }
 
+        public string PlanProgress
+        {
+            get
+            {
+                return "$" + CurrentSavingsAmount + " / $" + TotalSavingsAmount;
+            }
+        }
+
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
 
-        public List<SavingsChallenge> SavingsChallenges { get; set; }
-
-
-
-
-
+        public ObservableCollection<SavingsChallenge> SavingsChallenges{ get; set; }
+        public ObservableCollection<SavingsChallenge> ChallengeHistory { get; set; }
+        public ObservableCollection<SavingsChallenge> FutureChallenges { get; set; }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",

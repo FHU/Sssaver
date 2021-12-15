@@ -8,14 +8,17 @@ namespace Sssaver.Models
     public class SavingsChallenge: INotifyPropertyChanged
     {
         public decimal Amount { get; set; }
-        public DateTime ScheduledDate { get; set; }
-        public DateTime ActualDate { get; set; }
+
+        public DateTime ScheudledDate { get; set; }
 
         private bool isCompleted;
-        public bool IsCompleted {
+        //public bool IsCompleted { get; set; } = false;
+
+        public bool IsCompleted
+        {
             get { return isCompleted; }
-            set { SetProperty(ref isCompleted, value); }
-        } 
+            set => SetProperty(ref isCompleted, value);
+        }
 
         public SavingsChallenge(DateTime scheduledDate = new DateTime(), decimal amount = (decimal)0.0 )
         {
@@ -45,6 +48,11 @@ namespace Sssaver.Models
                 return;
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public static implicit operator decimal(SavingsChallenge v)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

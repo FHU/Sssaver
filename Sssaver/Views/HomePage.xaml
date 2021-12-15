@@ -2,56 +2,197 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Sssaver.ViewModels"
-    Title="$ssaver"
+    xmlns:forms="clr-namespace:Particle.Forms;assembly=Particle.Forms"
+    Title="Home"
     x:Class="Sssaver.Views.HomePage"
     BackgroundColor="{StaticResource White}"
     >
+
+    <ContentPage.Resources>
+        <x:Array Type="{x:Type Color}" x:Key="ConfettiColors">
+            <Color>#0074E0</Color>
+            <Color>#A2D2FF</Color>
+            <Color>#BDE0FE</Color>
+            <Color>#FF70A5</Color>
+            <Color>#FFC8DD</Color>
+            <Color>#ffffff</Color>
+        </x:Array>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <ScrollView >
             <Grid Padding="16" RowSpacing="8">
 
-                <Grid Grid.Row="0"
-                      BackgroundColor="{StaticResource LightGreen}">
-                    <StackLayout>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1.5*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="0.25*" />
+                </Grid.RowDefinitions>
 
-                        <Label Text="Progress" FontSize="Medium" />
+                <Grid Grid.Row="0" Margin="0,10">
 
-                        <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" />
+                    <Frame BackgroundColor="{StaticResource Tertiary}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
 
-                        <Label Text="{Binding SavingsPlan.Days}" FontSize="Large" />
+                        <StackLayout>
+
+                            <Label Text="Progress" FontFamily="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+
+                            <Label Text="{Binding SavingsPlan.Name}" FontFamily="Saira-Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+
+                            <Label Text="{Binding SavingsPlan.PlanProgress}" FontFamily="Saira" FontSize="Title" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+
+                            <Frame HasShadow="False" HeightRequest="4" CornerRadius="2" HorizontalOptions="Fill" Padding="0" Margin="10" BackgroundColor="{StaticResource Secondary}" IsClippedToBounds="True">
+                                <ProgressBar x:Name="ProgressBar" Progress="{Binding SavingsPlan.PercentSavingsCompleted}"
+                                         ProgressColor="{StaticResource Pink}"
+                                         HeightRequest="200"/>
+                            </Frame>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,10">
+
+                    <Frame BackgroundColor="{StaticResource Secondary}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
+
+                        <Grid>
+
+                             <forms:ParticleView x:Name="MyParticleCanvas"
+                                                IsActive="False"
+                                                IsRunning="True"
+                                                HasFallingParticles="True"
+                                                FallingParticlesPerSecond="40"
+                                                Margin="0, 0"
+                                                VerticalOptions="FillAndExpand"
+                                                HorizontalOptions="FillAndExpand"
+                                                ParticleColors="{StaticResource ConfettiColors}"/>
+
+                            <StackLayout>
+
+                                <Label Text="Today's Saving Challenge" FontFamily="Bold" FontSize="Medium" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="10" />
+
+                                <StackLayout x:Name="SaveGoalHidden">
+
+                                    <Label Text="Today's Saving Challenge:" Margin="20" HorizontalOptions="Center" TextColor="{StaticResource Primary}" VerticalOptions="Center" FontFamily="Saira-Bold" FontSize="Large"/>
+
+                                    <Button
+                                        Clicked="Mystery_Button_Clicked"
+                                        x:Name="MysteryButton"
+                                        HeightRequest="200"
+                                        CornerRadius="12"
+                                        ImageSource="mystery.png"
+                                        Padding="10"
+                                        Margin="10"/>
+
+                                </StackLayout>
+
+                                <StackLayout x:Name="SaveGoalReveal" IsVisible="False">
+
+                                    <Label Text="{Binding TodaysSavingsAmount, StringFormat='${0}'}" Margin="20" HorizontalOptions="Center" TextColor="{StaticResource Primary}" VerticalOptions="Center" FontFamily="Saira" FontSize="Title"/>
+
+                                    <Button Command="{Binding UpdateProgress}"
+                                            Clicked="Save_Button_Clicked"
+                                            HeightRequest="200"
+                                            CornerRadius="12"
+                                            ImageSource="save.png"
+                                            Padding="10"
+                                            Margin="10"/>
+
+                                </StackLayout>
+
+                                <StackLayout x:Name="GoalCompletedReveal" IsVisible="False">
+
+                                    <Image Source="congratulations.png" />
+                                    <Label Text="You Saved:" HorizontalOptions="Center" FontFamily="Saira" TextColor="{StaticResource Primary}" FontSize="Title"/>
+                                    <Label Text="{Binding TodaysSavingsAmount, StringFormat='${0}'}" HorizontalOptions="Center" FontFamily="Saira-Bold" TextColor="{StaticResource Primary}" FontSize="48" Margin="20"/>
+
+                                </StackLayout>
+
+                            </StackLayout>
 
 
-                        <Label Text="{Binding SavingsPlan.CurrentSavingsAmount}" FontSize="Medium" />
+                        </Grid>
 
-                        <Label Text="{Binding SavingsPlan.PercentSavingsCompleted}" FontSize="Medium" />
+                    </Frame>
 
+                </Grid>
 
+                <Grid Grid.Row="2" Margin="0,10">
+
+                    <Frame BackgroundColor="{StaticResource Tertiary}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
+
+                        <StackLayout>
+
+                            <Label Text="Goal" FontFamily="Bold" FontSize="Medium" HorizontalOptions="Center" TextColor="{StaticResource Primary}" Margin="10" />
+
+                            <Label Text="Save to buy Mavic Drone!" FontFamily="Saira" HorizontalOptions="Center" TextColor="{StaticResource Primary}" Margin="10" FontSize="Large" />
+
+                            <Image Source="drone.png" Margin="20"/>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="0,10">
+
+                    <Frame BackgroundColor="{StaticResource Secondary}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
+
+                        <StackLayout>
+
+                            <Label Text="History" FontFamily="Bold" FontSize="Medium" HorizontalOptions="Center" TextColor="{StaticResource Primary}" Margin="10"/>
+
+                            <CollectionView ItemsSource="{Binding SavingsPlan.ChallengeHistory}" HeightRequest="300" Margin="0,10">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding ScheudledDate}" FontFamily="Saira" FontSize="Medium" HorizontalOptions="Start" TextColor="{StaticResource Primary}" />
+                                            <Label Text="{Binding Amount, StringFormat='${0}'}" FontFamily="Saira" FontSize="Medium" HorizontalOptions="EndAndExpand" TextColor="{StaticResource Primary}" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </StackLayout>
+
+                    </Frame>
+
+                </Grid>
+
+                <Grid Grid.Row="4" Margin="0,10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Show Future Challenges?" FontFamily="Saira-Bold" FontSize="Medium" HorizontalOptions="Center" TextColor="{StaticResource Primary}" Margin="2.5"/>
+                        <Switch x:Name="FutureChallengesToggler" IsToggled="False" Toggled="FutureChallengesToggler_Toggled" OnColor="{StaticResource Primary}"/>
                     </StackLayout>
-
                 </Grid>
 
-                <Grid Grid.Row="1"
-                      BackgroundColor="{StaticResource Secondary}">
+                <Grid x:Name="FutureChallenges" IsVisible="False" Grid.Row="5" Margin="0,10">
 
-                    <Label Text="Today's Challenge" FontSize="Medium" />
+                    <Frame BackgroundColor="{StaticResource Tertiary}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
 
+                        <StackLayout>
 
-                </Grid>
+                            <Label Text="Future Savings Challenges" FontFamily="Bold" FontSize="Medium" HorizontalOptions="Center" TextColor="{StaticResource Primary}" Margin="10"/>
 
-                <Grid Grid.Row="2"
-                      BackgroundColor="{StaticResource Tertiary}">
+                            <CollectionView ItemsSource="{Binding SavingsPlan.FutureChallenges}" HeightRequest="100" Margin="0,10">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding ScheudledDate}" FontFamily="Saira" FontSize="Medium" HorizontalOptions="Start" TextColor="{StaticResource Primary}" />
+                                            <Label Text="{Binding Amount, StringFormat='${0}'}" FontFamily="Saira" FontSize="Medium" HorizontalOptions="EndAndExpand" TextColor="{StaticResource Primary}" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
 
-                    <Label Text="Goal" FontSize="Medium" />
+                        </StackLayout>
 
-
-                </Grid>
-
-                <Grid Grid.Row="3"
-                      BackgroundColor="{StaticResource White}">
-
-                    <Label Text="History" FontSize="Medium" />
-
+                    </Frame>
 
                 </Grid>
 

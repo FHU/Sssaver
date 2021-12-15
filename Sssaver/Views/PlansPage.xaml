@@ -4,8 +4,90 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Sssaver.Views.PlansPage"
     Title="Plans"
+    BackgroundColor="{StaticResource White}"
     >
     <ContentPage.Content>
-        
+        <ScrollView >
+            <Grid Padding="16" RowSpacing="8">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,10">
+                    <Frame BackgroundColor="{StaticResource LightPink}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
+                        <StackLayout>
+                            <Label Text="Traditional Plan" FontFamily="Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+                            <Label Text="Save $100" FontFamily="Saira-Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+                            <Label Text="10 Days" FontFamily="Saira" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                            <Button Clicked="Traditional_Plan_Button_Clicked"
+                                    HeightRequest="50"
+                                    CornerRadius="12"
+                                    Text="START"
+                                    FontFamily="Saira-Bold"
+                                    FontSize="Large"
+                                    BackgroundColor="{StaticResource Pink}"
+                                    Margin="10"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,10">
+                    <Frame BackgroundColor="{StaticResource LightPink}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
+                        <StackLayout>
+                            <Label Text="Royalty Plan" FontFamily="Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+                            <Label Text="Save $1000" FontFamily="Saira-Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+                            <Label Text="30 Days" FontFamily="Saira" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                            <Button Clicked="Royalty_Plan_Button_Clicked"
+                                    HeightRequest="50"
+                                    CornerRadius="12"
+                                    Text="START"
+                                    FontFamily="Saira-Bold"
+                                    FontSize="Large"
+                                    BackgroundColor="{StaticResource Pink}"
+                                    Margin="10"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="0,10">
+                    <Frame BackgroundColor="{StaticResource LightPink}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
+                        <StackLayout>
+                            <Label Text="Fibonacci Plan" FontFamily="Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+                            <Label Text="Save $143" FontFamily="Saira-Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+                            <Label Text="10 Days" FontFamily="Saira" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" />
+                            <Button Clicked="Fibonacci_Plan_Button_Clicked"
+                                    HeightRequest="50"
+                                    CornerRadius="12"
+                                    Text="START"
+                                    FontFamily="Saira-Bold"
+                                    FontSize="Large"
+                                    BackgroundColor="{StaticResource Pink}"
+                                    Margin="10"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="0,10">
+                    <Frame BackgroundColor="{StaticResource LightPink}" HasShadow="True" CornerRadius="12" HorizontalOptions="Fill" IsClippedToBounds="True">
+                        <StackLayout>
+                            <Label Text="Custom Plan" FontFamily="Bold" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="5" />
+                            <Label Text="Save Custom Amount" FontFamily="Saira" FontSize="Large" TextColor="{StaticResource Primary}" HorizontalOptions="Center" Margin="0,5,0,15" />
+                            <Button Clicked="Custom_Plan_Button_Clicked"
+                                    HeightRequest="50"
+                                    CornerRadius="12"
+                                    Text="CREATE PLAN"
+                                    FontFamily="Saira-Bold"
+                                    FontSize="Large"
+                                    BackgroundColor="{StaticResource Pink}"
+                                    Margin="10"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

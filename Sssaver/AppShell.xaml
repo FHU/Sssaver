@@ -2,7 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Sssaver.Views"
-       Title="Sssaver"
+       Title="Savr"
        x:Class="Sssaver.AppShell"
        >
 
@@ -31,9 +31,9 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Home" Icon="icon_about.png" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
-        <ShellContent Title="Plans" Icon="icon_about.png" Route="PlansPage" ContentTemplate="{DataTemplate local:PlansPage}" />
-        <ShellContent Title="Profile" Icon="icon_about.png" Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
+        <ShellContent Title="Home" Icon="icon_pig.png" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+        <ShellContent Title="Plans" Icon="icon_plan.png" Route="PlansPage" ContentTemplate="{DataTemplate local:PlansPage}" />
+        <ShellContent Title="Profile" Icon="icon_profile.png" Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
         <!--<ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />-->
     </TabBar>
 

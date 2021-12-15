@@ -8,5 +8,25 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="particle.forms" Version="1.0.0" />
+    <PackageReference Include="Toasts.Forms.Plugin" Version="3.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="particle.forms" />
+    <None Remove="Resources\" />
+    <None Remove="Resources\Fonts\" />
+    <None Remove="Resources\Fonts\Boldfinger.ttf" />
+    <None Remove="Resources\Fonts\Saira-Regular.ttf" />
+    <None Remove="Resources\Fonts\Saira-SemiBold.ttf" />
+    <None Remove="Toasts.Forms.Plugin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\Boldfinger.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Saira-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\Saira-SemiBold.ttf" />
   </ItemGroup>
 </Project>

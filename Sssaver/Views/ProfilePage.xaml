@@ -6,6 +6,37 @@
     Title="Profile"
     >
     <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout BackgroundColor="{StaticResource Secondary}">
+
+                <Image Source="Icon.png" Margin="10"/>
+
+                <Button
+                    BackgroundColor="{StaticResource Primary}"
+                    Text="SIGN UP"
+                    FontFamily="Saira"
+                    FontSize="Title"
+                    HeightRequest="60"
+                    CornerRadius="12"
+                    Margin="50, 10"/>
+
+                <Button
+                    BorderColor="{StaticResource Primary}"
+                    BorderWidth="3"
+                    BackgroundColor="{StaticResource Secondary}"
+                    TextColor="{StaticResource Primary}"
+                    Text="LOGIN"
+                    FontSize="Title"
+                    FontFamily="Saira"
+                    HeightRequest="60"
+                    CornerRadius="12"
+                    Margin="50, 10"/>
+
+            </StackLayout>
+
+        </ScrollView>
         
     </ContentPage.Content>
 </ContentPage>
