@@ -5,9 +5,10 @@ using System.Runtime.CompilerServices;
 
 namespace Sssaver.Models
 {
-    public class SavingsChallenge
+    public class SavingsChallenge: INotifyPropertyChanged
     {
         public decimal Amount { get; set; }
+
         public DateTime ScheudledDate { get; set; }
 
         private bool isCompleted;
@@ -21,7 +22,7 @@ namespace Sssaver.Models
 
         public SavingsChallenge(DateTime scheduledDate = new DateTime(), decimal amount = (decimal)0.0 )
         {
-            ScheudledDate = scheduledDate;
+            ScheduledDate = scheduledDate;
             Amount = amount;
         }
 
