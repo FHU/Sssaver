@@ -4,10 +4,6 @@ using Xamarin.Forms.Xaml;
 using Sssaver.Services;
 using Sssaver.Views;
 
-[assembly: ExportFont("Boldfinger.ttf", Alias = "Bold")]
-[assembly: ExportFont("Saira-Regular.ttf", Alias = "Saira")]
-[assembly: ExportFont("Saira-SemiBold.ttf", Alias = "Saira-Bold")]
-
 namespace Sssaver
 {
     public partial class App : Application
